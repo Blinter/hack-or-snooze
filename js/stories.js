@@ -1,12 +1,10 @@
 "use strict";
 let storyList;
-const getAndShowStoriesOnStart = async () => {
+async function getAndShowStoriesOnStart() {
     storyList = await StoryList.getStories();
     $storiesLoadingMsg.remove();
     putStoriesOnPage();
 }
-//<i class="fa-regular fa-star"></i>
-//<i class="fa-solid fa-star"></i>
 const generateDeleteButton = storyId =>
     currentUser && currentUser.ownStories && currentUser.ownStories.some(s => s.storyId === storyId) ?
         `` : '';
@@ -56,7 +54,7 @@ const provideStories = userObj => {
             return storyList.stories || [];
     }
 };
-const putStoriesOnPage = () => {
+function putStoriesOnPage() {
     console.debug("putStoriesOnPage");
     $allStoriesList.empty();
     const stories = provideStories(currentUser);
@@ -89,7 +87,7 @@ const putStoriesOnPage = () => {
         $allStoriesList.append(emptyGenerateSuggestion(currentUser));
     $allStoriesList.show();
 }
-const toggleFavoriteStory = async (evt, currentStoryId) => {
+async function toggleFavoriteStory(evt, currentStoryId) {
     evt.preventDefault();
     console.debug("toggleFavoriteStory", evt);
     if (!currentUser || !currentUser.favorites)
@@ -109,7 +107,7 @@ const toggleFavoriteStory = async (evt, currentStoryId) => {
             }
         }).catch(e => console.error(e));
 }
-const addStoryFromForm = async(evt) => {
+async function addStoryFromForm(evt) {
     evt.preventDefault();
     console.debug("addStoryFromForm", evt);
     await StoryList.addStory(currentUser,
@@ -123,7 +121,7 @@ const addStoryFromForm = async(evt) => {
             putStoriesOnPage();
         }).catch(exception => console.error(exception));
 }
-const updateStoryFromForm = async(evt) => {
+async function updateStoryFromForm(evt) {
     evt.preventDefault();
     console.debug("updateStoryFromForm", evt);
     await User.updateStory(currentUser,

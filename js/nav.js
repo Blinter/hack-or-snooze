@@ -1,5 +1,5 @@
 "use strict";
-const navAllStories = (evt) => {
+function navAllStories(evt) {
     console.debug("navAllStories", evt);
     currentUser.displayType = "";
     activatePageLink();
@@ -7,7 +7,7 @@ const navAllStories = (evt) => {
     putStoriesOnPage();
 }
 $body.on("click", "#nav-all", navAllStories);
-const navSubmitNewStory = (evt) => {
+function navSubmitNewStory(evt) {
     console.debug("navSubmitNewStory", evt);
     if (!currentUser)
         return;
@@ -17,7 +17,7 @@ const navSubmitNewStory = (evt) => {
     $addStoryForm.show();
 }
 $body.on("click", "#nav-submit", navSubmitNewStory);
-const navEditStory = (evt, storyToEdit) => {
+function navEditStory(evt, storyToEdit) {
     console.debug("navEditStory", evt);
     if (!currentUser)
         return;
@@ -31,7 +31,7 @@ const navEditStory = (evt, storyToEdit) => {
     $("#editstory-url").val(storyToEdit.url);
     $editStoryForm.on("submit", { storyToEdit }, updateStoryFromForm);
 }
-const navEditUser = (evt) => {
+function navEditUser(evt) {
     console.debug("navEditUser", evt);
     if (!currentUser)
         return;
@@ -48,7 +48,7 @@ const navEditUser = (evt) => {
     $editUserForm.on("submit", updateUserFromForm);
 }
 $navUserProfile.on("click", navEditUser);
-const navToggleOnFavorites = (evt) => {
+function navToggleOnFavorites(evt) {
     console.debug("navToggleOnFavorites", evt);
     if (!currentUser)
         return;
@@ -58,7 +58,7 @@ const navToggleOnFavorites = (evt) => {
     putStoriesOnPage();
 }
 $body.on("click", "#nav-favorites", navToggleOnFavorites);
-const navToggleOnMyStories = (evt) => {
+function navToggleOnMyStories(evt) {
     console.debug("navToggleOnMyStories", evt);
     if (!currentUser)
         return;
@@ -68,7 +68,7 @@ const navToggleOnMyStories = (evt) => {
     putStoriesOnPage();
 }
 $body.on("click", "#nav-stories", navToggleOnMyStories);
-const navLoginClick = (evt) => {
+function navLoginClick(evt) {
     console.debug("navLoginClick", evt);
     currentUser = { displayType: "login" };
     activatePageLink();
@@ -77,7 +77,7 @@ const navLoginClick = (evt) => {
     $signupForm.show();
 }
 $navLogin.on("click", navLoginClick);
-const updateNavOnLogin = () => {
+function updateNavOnLogin() {
     console.debug("updateNavOnLogin");
     $(".main-nav-links").show();
     currentUser.displayType = "";

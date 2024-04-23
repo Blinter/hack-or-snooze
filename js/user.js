@@ -1,12 +1,12 @@
 "use strict";
 let currentUser;
- const favoriteStory = (evt) => {
+async function favoriteStory(evt) {
     console.debug("favoriteStory", evt);
     evt.preventDefault();
     updateUIOnUserLogin();
     $signupForm.trigger("reset");
 }
-const login = async(evt) => {
+async function login(evt) {
     evt.preventDefault();
     console.debug("login", evt);
     currentUser = await User.login(
@@ -20,7 +20,7 @@ const login = async(evt) => {
     }
 }
 $loginForm.on("submit", login);
-const addStoryFromForm = async(evt) => {
+async function addStoryFromForm(evt) {
     evt.preventDefault();
     console.debug("addStoryFromForm", evt);
     await StoryList.addStory(currentUser,
@@ -35,7 +35,7 @@ const addStoryFromForm = async(evt) => {
         }).catch(exception => console.error(exception));
 }
 $addStoryForm.on("submit", addStoryFromForm);
-const updateUserFromForm = async(evt) => {
+async function updateUserFromForm(evt) {
     evt.preventDefault();
     console.debug("updateUserFromForm", evt);
     await User.updateUser(currentUser, {
@@ -48,7 +48,7 @@ const updateUserFromForm = async(evt) => {
         updateUIOnUserLogin();
     }).catch(exception => console.error(exception));
 }
-const signup = async(evt) => {
+async function signup(evt) {
     evt.preventDefault();
     console.debug("signup", evt);
     currentUser = await User.signup(
@@ -63,27 +63,27 @@ const signup = async(evt) => {
     }
 }
 $signupForm.on("submit", signup);
-const logout = (evt) => {
+function logout(evt) {
     console.debug("logout", evt);
     localStorage.clear();
     location.reload();
 }
 $navLogOut.on("click", logout);
-const checkForRememberedUser = async() => {
+async function checkForRememberedUser() {
     console.debug("checkForRememberedUser");
     const token = localStorage.getItem("token");
     const username = localStorage.getItem("username");
     if (!token || !username) return false;
     currentUser = await User.loginViaStoredCredentials(token, username);
 }
-const saveUserCredentialsInLocalStorage = () => {
+function saveUserCredentialsInLocalStorage() {
     console.debug("saveUserCredentialsInLocalStorage");
     if (!currentUser)
         return;
     localStorage.setItem("token", currentUser.loginToken);
     localStorage.setItem("username", currentUser.username);
 }
-const updateUIOnUserLogin = () => {
+function updateUIOnUserLogin() {
     console.debug("updateUIOnUserLogin");
     putStoriesOnPage();
     updateNavOnLogin();

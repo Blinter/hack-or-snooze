@@ -18,7 +18,7 @@ const $navStories = $("#nav-stories");
 const $navLogin = $("#nav-login");
 const $navUserProfile = $("#nav-user-profile");
 const $navLogOut = $("#nav-logout");
-const hidePageComponents = () => {
+function hidePageComponents() {
     [
         $allStoriesList,
         $loginForm,
@@ -29,7 +29,7 @@ const hidePageComponents = () => {
     ].forEach(c => c.hide());
     activatePageLink();
 }
-const start = async() => {
+async function start() {
     console.debug("start");
     if (!currentUser)
         currentUser = { displayType: "" };
@@ -39,7 +39,7 @@ const start = async() => {
     if (currentUser && currentUser.loginToken)
         updateUIOnUserLogin();
 }
-const activatePageLink = () => {
+function activatePageLink() {
     if (!currentUser)
         return;
     switch (currentUser.displayType) {
