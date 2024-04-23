@@ -145,7 +145,6 @@ class User {
             inputData.name = name;
         if (password !== '' && password !== undefined)
             inputData.password = password;
-        console.log(inputData);
         if (!inputData.name && !inputData.password) {
             alert("No change detected.");
             return;
