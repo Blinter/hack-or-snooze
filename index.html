@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hack or Snooze</title>
+    <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="css/user.css">
+    <link rel="stylesheet" href="css/stories.css">
+    <link rel="stylesheet" href="css/nav.css">
+</head>
+
+<body>
+    <!-- top navigation bar -->
+    <nav>
+        <div class="navbar-brand">
+            <a class="nav-link" href="#" id="nav-all">Hack or Snooze</a>
+        </div>
+        <div class="navbar-userlinks hidden">
+            <a class="nav-linkaction" href="#" id="nav-submit">submit</a>
+            <a class="nav-linkaction" href="#" id="nav-favorites">favorites</a>
+            <a class="nav-linkaction" href="#" id="nav-stories">my stories</a>
+        </div>
+        <div class="nav-right">
+            <a class="nav-link" href="#" id="nav-login">login/signup</a>
+            <a class="nav-link" href="#" id="nav-user-profile"></a>
+            <a class="hidden" id="nav-logout" href="#"><small>(logout)</small></a>
+        </div>
+    </nav>
+    <!-- area for stories (all stories, user stories, favorites) -->
+    <section class="stories-container container">
+        <!-- loading message (removed by JS after stories loaded) -->
+        <div id="stories-loading-msg">Loading&hellip;</div>
+        <!-- List of all stories -->
+        <ol id="all-stories-list" class="stories-list"></ol>
+
+    </section>
+
+    <!-- Login and signup forms -->
+    <section class="account-forms-container container">
+
+        <!-- Login form -->
+        <form action="#" id="login-form" class="account-form hidden" method="post">
+            <h4>Login</h4>
+            <div class="login-input">
+                <label for="login-username">username</label>
+                <input id="login-username" autocomplete="current-username" value=""
+                    placeholder="Username cannot be empty">
+            </div>
+            <div class="login-input">
+                <label for="login-password">password</label>
+                <input id="login-password" type="password" value="" placeholder="Password cannot be empty"
+                    autocomplete="current-password">
+            </div>
+            <button type="submit">login</button>
+            <hr>
+        </form>
+
+        <!-- Add Story form -->
+        <form action="#" id="addstory-form" class="addstory-form hidden" method="post">
+            <h4>Add Story</h4>
+            <div class="story-input">
+                <label for="story-title">Title</label>
+                <input id="story-title" value="" placeholder="Title Cannot be Empty">
+            </div>
+            <div class="story-input">
+                <label for="story-author">Author</label>
+                <input id="story-author" value="" placeholder="Author Cannot be Empty">
+            </div>
+            <div class="story-input">
+                <label for="story-url">URL</label>
+                <input id="story-url" value="" placeholder="URL Cannot be Empty">
+            </div>
+            <button type="submit">Add Story</button>
+            <hr>
+        </form>
+
+        <!-- Edit Story form -->
+        <form action="#" id="editstory-form" class="editstory-form hidden" method="post">
+            <h4>Edit Story</h4>
+            <div class="editstory-input">
+                <label for="editstory-title">Title</label>
+                <input id="editstory-title" value="" placeholder="Title Cannot be Empty">
+            </div>
+            <div class="editstory-input">
+                <label for="editstory-author">Author</label>
+                <input id="editstory-author" value="" placeholder="Author Cannot be Empty">
+            </div>
+            <div class="editstory-input">
+                <label for="editstory-url">URL</label>
+                <input id="editstory-url" value="" placeholder="URL Cannot be Empty">
+            </div>
+            <button type="submit">Modify Story</button>
+            <hr>
+        </form>
+
+        <!-- Edit User form -->
+        <form action="#" id="edituser-form" class="edituser-form hidden" method="post">
+            <h4>Editing User </h4>
+            <div class="login-input">
+                <label for="edituser-name">name</label>
+                <input id="edituser-name" autocomplete="current-name" placeholder="Leave blank or a new nickname">
+            </div>
+            <div class="login-input">
+                <label for="edituser-password">password</label>
+                <input id="edituser-password" type="password" placeholder="Leave blank or a new password" value=""
+                    autocomplete="current-password">
+            </div>
+            <button type="submit">Change</button>
+            <hr>
+        </form>
+
+        <!-- Signup form -->
+        <form action="#" id="signup-form" class="account-form hidden" method="post">
+            <h4>Create Account</h4>
+            <div class="login-input">
+                <label for="signup-name">name</label>
+                <input id="signup-name" autocapitalize="words" value="" placeholder="Nickname cannot be empty">
+            </div>
+            <div class="login-input">
+                <label for="signup-username">username</label>
+                <input id="signup-username" autocomplete="new-username" value="" placeholder="Username cannot be empty">
+            </div>
+            <div class="login-input">
+                <label for="signup-password">password</label>
+                <input id="signup-password" autocomplete="new-password" type="password" value=""
+                    placeholder="Password cannot be empty">
+            </div>
+            <button type="submit">create account</button>
+        </form>
+    </section>
+
+    <!-- Library JS & our JS -->
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    <script src="https://kit.fontawesome.com/064f164cde.js" crossorigin="anonymous"></script>
+
+    <script src="js/models.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/user.js"></script>
+    <script src="js/stories.js"></script>
+
+</body>
+
+</html>

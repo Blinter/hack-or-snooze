@@ -1,0 +1,86 @@
+/* Lists of stories */
+i#toggleFavorite {
+    cursor: pointer;
+}
+
+i#deleteStory {
+    cursor: pointer;
+    font-size: 14px;
+    color: red;
+    border: 2.5px red solid;
+    letter-spacing: 1px;
+    width: 10px;
+    border-radius: 50%;
+}
+
+i#edit-story {
+    cursor: pointer;
+    color: #2E6D70;
+    font-size: 14px;
+}
+
+.stories-list {
+    margin: 20px 5px;
+}
+
+.stories-list>li {
+    color: gray;
+    font-size: 0.8rem;
+    margin: 8px 1px;
+    border-bottom: 0.1px rgba(172, 183, 223, 0.25) solid;
+}
+
+#stories-loading-msg {
+    font-weight: bold;
+    font-size: 150%;
+    margin: 20px 30px;
+}
+
+/* Individual stories */
+.story-link {
+    margin-left: 2em;
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 18px 0;
+}
+
+.story-link:hover {
+    text-decoration: none;
+}
+
+.story-author {
+    margin-left: 2em;
+    color: #65A050;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.story-user {
+    margin-left: 2em;
+    display: block;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 800;
+    color: #F5AD4E;
+}
+
+.story-hostname {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    font-size: 9px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 100;
+    color: #848484;
+}
+
+.story-user-edit {
+    margin-left: 2em;
+    display: block;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 800;
+    color: #004A4E;
+}
+
+.story-user-edit {
+    display: block;
+}
