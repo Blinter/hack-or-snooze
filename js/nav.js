@@ -1,6 +1,6 @@
 "use strict";
 function navAllStories(evt) {
-    console.debug("navAllStories", evt);
+    //console.debug("navAllStories", evt);
     currentUser.displayType = "";
     activatePageLink();
     hidePageComponents();
@@ -8,7 +8,7 @@ function navAllStories(evt) {
 }
 $body.on("click", "#nav-all", navAllStories);
 function navSubmitNewStory(evt) {
-    console.debug("navSubmitNewStory", evt);
+    //console.debug("navSubmitNewStory", evt);
     if (!currentUser)
         return;
     currentUser.displayType = "submit";
@@ -18,7 +18,7 @@ function navSubmitNewStory(evt) {
 }
 $body.on("click", "#nav-submit", navSubmitNewStory);
 function navEditStory(evt, storyToEdit) {
-    console.debug("navEditStory", evt);
+    //console.debug("navEditStory", evt);
     if (!currentUser)
         return;
     $editStoryForm.off("submit");
@@ -32,7 +32,7 @@ function navEditStory(evt, storyToEdit) {
     $editStoryForm.on("submit", { storyToEdit }, updateStoryFromForm);
 }
 function navEditUser(evt) {
-    console.debug("navEditUser", evt);
+    //console.debug("navEditUser", evt);
     if (!currentUser)
         return;
     $editUserForm.off("submit");
@@ -49,7 +49,7 @@ function navEditUser(evt) {
 }
 $navUserProfile.on("click", navEditUser);
 function navToggleOnFavorites(evt) {
-    console.debug("navToggleOnFavorites", evt);
+    //console.debug("navToggleOnFavorites", evt);
     if (!currentUser)
         return;
     currentUser.displayType = "favorites";
@@ -59,7 +59,7 @@ function navToggleOnFavorites(evt) {
 }
 $body.on("click", "#nav-favorites", navToggleOnFavorites);
 function navToggleOnMyStories(evt) {
-    console.debug("navToggleOnMyStories", evt);
+    //console.debug("navToggleOnMyStories", evt);
     if (!currentUser)
         return;
     currentUser.displayType = "my stories";
@@ -69,7 +69,7 @@ function navToggleOnMyStories(evt) {
 }
 $body.on("click", "#nav-stories", navToggleOnMyStories);
 function navLoginClick(evt) {
-    console.debug("navLoginClick", evt);
+    //console.debug("navLoginClick", evt);
     currentUser = { displayType: "login" };
     activatePageLink();
     hidePageComponents();
@@ -78,7 +78,7 @@ function navLoginClick(evt) {
 }
 $navLogin.on("click", navLoginClick);
 function updateNavOnLogin() {
-    console.debug("updateNavOnLogin");
+    //console.debug("updateNavOnLogin");
     $(".main-nav-links").show();
     currentUser.displayType = "";
     activatePageLink();

@@ -55,7 +55,7 @@ const provideStories = userObj => {
     }
 };
 function putStoriesOnPage() {
-    console.debug("putStoriesOnPage");
+    //console.debug("putStoriesOnPage");
     $allStoriesList.empty();
     const stories = provideStories(currentUser);
     for (let story of stories) {
@@ -89,12 +89,12 @@ function putStoriesOnPage() {
 }
 async function toggleFavoriteStory(evt, currentStoryId) {
     evt.preventDefault();
-    console.debug("toggleFavoriteStory", evt);
+    //console.debug("toggleFavoriteStory", evt);
     if (!currentUser || !currentUser.favorites)
         return;
     await User.toggleFavoriteStory(currentUser, currentStoryId)
         .then(() => {
-            console.debug("Toggle Favorite Completed");
+            //console.debug("Toggle Favorite Completed");
             $(evt.target).attr({
                 class: !currentUser.favorites.some(s => s.storyId === currentStoryId) ?
                     "fa-regular fa-star" :
@@ -109,7 +109,7 @@ async function toggleFavoriteStory(evt, currentStoryId) {
 }
 async function addStoryFromForm(evt) {
     evt.preventDefault();
-    console.debug("addStoryFromForm", evt);
+    //console.debug("addStoryFromForm", evt);
     await StoryList.addStory(currentUser,
         new Story({
             author: $("#story-author").val(),
@@ -123,7 +123,7 @@ async function addStoryFromForm(evt) {
 }
 async function updateStoryFromForm(evt) {
     evt.preventDefault();
-    console.debug("updateStoryFromForm", evt);
+    //console.debug("updateStoryFromForm", evt);
     await User.updateStory(currentUser,
         new Story({
             storyId: evt.data.storyToEdit.storyId,

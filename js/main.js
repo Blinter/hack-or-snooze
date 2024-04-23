@@ -30,7 +30,7 @@ function hidePageComponents() {
     activatePageLink();
 }
 async function start() {
-    console.debug("start");
+    //console.debug("start");
     if (!currentUser)
         currentUser = { displayType: "" };
     activatePageLink();

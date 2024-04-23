@@ -1,14 +1,14 @@
 "use strict";
 let currentUser;
 async function favoriteStory(evt) {
-    console.debug("favoriteStory", evt);
     evt.preventDefault();
+    //console.debug("favoriteStory", evt);
     updateUIOnUserLogin();
     $signupForm.trigger("reset");
 }
 async function login(evt) {
     evt.preventDefault();
-    console.debug("login", evt);
+    //console.debug("login", evt);
     currentUser = await User.login(
         $("#login-username").val(),
         $("#login-password").val());
@@ -22,7 +22,7 @@ async function login(evt) {
 $loginForm.on("submit", login);
 async function addStoryFromForm(evt) {
     evt.preventDefault();
-    console.debug("addStoryFromForm", evt);
+    //console.debug("addStoryFromForm", evt);
     await StoryList.addStory(currentUser,
         new Story({
             author: $("#story-author").val(),
@@ -37,7 +37,7 @@ async function addStoryFromForm(evt) {
 $addStoryForm.on("submit", addStoryFromForm);
 async function updateUserFromForm(evt) {
     evt.preventDefault();
-    console.debug("updateUserFromForm", evt);
+    //console.debug("updateUserFromForm", evt);
     await User.updateUser(currentUser, {
         name: $("#edituser-name").val(),
         password: $("#edituser-password").val()
@@ -50,7 +50,7 @@ async function updateUserFromForm(evt) {
 }
 async function signup(evt) {
     evt.preventDefault();
-    console.debug("signup", evt);
+    //console.debug("signup", evt);
     currentUser = await User.signup(
         $("#signup-username").val(),
         $("#signup-password").val(),
@@ -64,27 +64,27 @@ async function signup(evt) {
 }
 $signupForm.on("submit", signup);
 function logout(evt) {
-    console.debug("logout", evt);
+    //console.debug("logout", evt);
     localStorage.clear();
     location.reload();
 }
 $navLogOut.on("click", logout);
 async function checkForRememberedUser() {
-    console.debug("checkForRememberedUser");
+    //console.debug("checkForRememberedUser");
     const token = localStorage.getItem("token");
     const username = localStorage.getItem("username");
     if (!token || !username) return false;
     currentUser = await User.loginViaStoredCredentials(token, username);
 }
 function saveUserCredentialsInLocalStorage() {
-    console.debug("saveUserCredentialsInLocalStorage");
+    //console.debug("saveUserCredentialsInLocalStorage");
     if (!currentUser)
         return;
     localStorage.setItem("token", currentUser.loginToken);
     localStorage.setItem("username", currentUser.username);
 }
 function updateUIOnUserLogin() {
-    console.debug("updateUIOnUserLogin");
+    //console.debug("updateUIOnUserLogin");
     putStoriesOnPage();
     updateNavOnLogin();
 }
